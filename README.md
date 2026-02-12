@@ -34,7 +34,7 @@ O sistema foi desenhado para rodar isolado (em Container ou VM), atuando como um
 1.  **Solicitação (Zabbix → Middleware):**
     O Zabbix realiza um `HTTP POST` centralizado (ex: a cada 5 minutos) para a API, enviando as credenciais e o IP do alvo via JSON.
 
-2.  **Coleta (Middleware → Dexin):**
+2.  **Coleta (Middleware → Dexing):**
     O script Python autentica-se no equipamento usando *HTTP Basic Auth* e consome o endpoint oculto `/cgi-bin/tuner.cgi`, emulando uma requisição interna legítima.
 
 3.  **Processamento (Interno):**
@@ -81,7 +81,7 @@ Para executar o middleware em ambiente de produção com estabilidade, recomenda
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/Ronec1r/api-dexing.git](https://github.com/Ronec1r/api-dexing.git)
+    git clone https://github.com/Ronec1r/api-dexing.git
     cd api-dexing
     ```
 
@@ -127,7 +127,7 @@ O Middleware expõe um único endpoint para comunicação com o Zabbix.
 
 | Parâmetro  | Tipo   | Obrigatório | Descrição                                  |
 | :---       | :---   | :---        | :---                                       |
-| `ip`       | string | **Sim** | Endereço IP do equipamento Dexin.          |
+| `ip`       | string | **Sim** | Endereço IP do equipamento Dexing.          |
 | `port`     | int    | Não         | Porta da interface web (Padrão: `80`).     |
 | `user`     | string | Não         | Usuário de login (Padrão: `admin`).        |
 | `password` | string | Não         | Senha de login (Padrão: `admin`).          |
